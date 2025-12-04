@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="todo-app">
+            <div class="app-header">
+                <h1>My Todo List</h1>
+                <button id="openAddBtn" class="add-btn" title="Add task">+ New Task</button>
+            </div>
+            
+            <!-- Add form removed (use "+ New Task" modal instead) -->
+
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="active">Active</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+            </div>
+
+            <div class="status-tabs" role="tablist">
+                <button class="status-tab active" data-status="all">All</button>
+                <button class="status-tab" data-status="new">new</button>
+                <button class="status-tab" data-status="todo">todo</button>
+                <button class="status-tab" data-status="analiz">analiz</button>
+                <button class="status-tab" data-status="in dev">in dev</button>
+                <button class="status-tab" data-status="test">test</button>
+                <button class="status-tab" data-status="done">done</button>
+            </div>
+
+            <ul id="todoList" class="todo-list">
+                <!-- Todos will be added here -->
+            </ul>
+
+            <div class="stats">
+                <span id="taskCount">0 tasks</span>
+                <button id="clearBtn" class="clear-btn">Clear Completed</button>
+            </div>
+
+            <div id="descriptionModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2 id="modalTitle">Task Description</h2>
+                    <p id="modalDescription"></p>
+                </div>
+            </div>
+
+            <div id="editModal" class="modal">
+                <div class="modal-content">
+                    <span class="close edit-close">&times;</span>
+                    <h2 id="editModalTitle">Edit Task</h2>
+                    <div class="edit-form">
+                        <label for="editTodoText">Task</label>
+                        <input id="editTodoText" class="todo-input" type="text">
+                        <label for="editTodoStatus">Status</label>
+                        <select id="editTodoStatus" class="status-select">
+                            <option value="new">new</option>
+                            <option value="todo">todo</option>
+                            <option value="analiz">analiz</option>
+                            <option value="in dev">in dev</option>
+                            <option value="test">test</option>
+                            <option value="done">done</option>
+                        </select>
+                        <label for="editTodoDescription">Description</label>
+                        <textarea id="editTodoDescription" class="todo-description"></textarea>
+                        <div class="edit-actions">
+                            <button id="saveEditBtn" class="add-btn">Save</button>
+                            <button id="cancelEditBtn" class="clear-btn">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="addModal" class="modal">
+                <div class="modal-content">
+                    <span class="close add-close">&times;</span>
+                    <h2 id="addModalTitle">Add Task</h2>
+                    <div class="edit-form">
+                        <label for="addTodoText">Task</label>
+                        <input id="addTodoText" class="todo-input" type="text">
+                        <label for="addTodoDescription">Description</label>
+                        <textarea id="addTodoDescription" class="todo-description"></textarea>
+                        <label for="addTodoStatus">Status</label>
+                        <select id="addTodoStatus" class="status-select">
+                            <option value="new">new</option>
+                            <option value="todo">todo</option>
+                            <option value="analiz">analiz</option>
+                            <option value="in dev">in dev</option>
+                            <option value="test">test</option>
+                            <option value="done">done</option>
+                        </select>
+                        <div class="edit-actions">
+                            <button id="saveAddBtn" class="add-btn">Add</button>
+                            <button id="cancelAddBtn" class="clear-btn">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
