@@ -25,6 +25,11 @@ A modern, feature-rich todo application built with vanilla HTML, CSS, and JavaSc
   - Active tasks (not completed)
   - Completed tasks
 - 📊 **Status Tabs** - Quick filter by task status with dedicated tabs
+- 📋 **Subtasks** - Break down tasks into smaller steps:
+  - Add multiple subtasks per task
+  - Check off subtasks individually
+  - Progress badge shows completion (e.g., "2/5")
+  - Delete subtasks as needed
 - 💾 **localStorage** - Automatic data persistence - your tasks are saved and restored on page reload
 - 🎨 **Beautiful UI** - Modern gradient background, smooth animations, and responsive design
 - 📱 **Responsive Design** - Works seamlessly on desktop and mobile devices
@@ -108,6 +113,37 @@ Then visit `http://localhost:8000` in your browser.
 2. Select **"Delete"**
 3. Confirm the deletion in the popup dialog
 
+### Managing Subtasks
+Subtasks help you break down larger tasks into smaller, manageable steps.
+
+**Adding Subtasks:**
+1. Click the **⋮** (three-dot menu) on any task
+2. Select **"Edit task"** to open the edit modal
+3. Scroll to the **"Subtasks"** section
+4. Type a subtask name in the input field
+5. Click **"Add Subtask"** or press Enter
+6. The subtask appears in the list above the input field
+
+**Completing Subtasks:**
+1. In the task's edit modal, check the checkbox ✓ next to any subtask to mark it complete
+2. Completed subtasks show strikethrough text
+3. The progress badge on the task (e.g., "2/5") updates automatically
+
+**Deleting Subtasks:**
+1. In the task's edit modal, find the subtask you want to remove
+2. Click the **✕** button on the right side of the subtask
+3. The subtask is immediately deleted and removed from the list
+
+**Viewing Progress:**
+- Each task with subtasks displays a progress badge like **"2/5"** (completed/total)
+- This badge appears below the task name and helps you see at a glance how much work is done
+- The badge only appears when subtasks exist
+
+**Notes:**
+- Subtasks are saved automatically with their parent task
+- Subtask status persists across page reloads
+- Deleting a task also deletes all its subtasks
+
 ## 🎨 Design Highlights
 
 - **Color-Coded Statuses**: Each status has a unique color for quick visual identification
@@ -117,6 +153,7 @@ Then visit `http://localhost:8000` in your browser.
   - `in dev` - Cyan
   - `test` - Yellow
   - `done` - Green
+- **Subtask Progress Badges**: Visual indicators show subtask completion (e.g., "3/5")
 - **Gradient Background**: Purple-to-violet gradient for a modern aesthetic
 - **Smooth Animations**: Fade-in modals, slide transitions, and hover effects
 - **Accessible UI**: Clear labels, semantic HTML, and keyboard support (Enter to submit forms)
@@ -127,6 +164,7 @@ All tasks are automatically saved to your browser's **localStorage** under the k
 - Your tasks persist even after closing the browser
 - No server or backend required
 - Data is stored locally on your device
+- **Subtasks are saved with their parent tasks**
 
 To clear all data, open your browser's Developer Tools:
 1. Right-click → Inspect (or F12)
@@ -163,6 +201,10 @@ todo-app/
 | `reorder(draggedId, targetId)` | Reorder tasks via drag-and-drop |
 | `getFilteredTodos()` | Apply active and status filters |
 | `render()` | Dynamically generate the task list UI |
+| `addSubtask()` | Add a new subtask to a task |
+| `toggleSubtask(todoId, subtaskId)` | Mark subtask as complete/incomplete |
+| `deleteSubtask(todoId, subtaskId)` | Remove a subtask |
+| `renderSubtasksList()` | Display all subtasks in the edit modal |
 
 ## 🌟 Browser Compatibility
 
